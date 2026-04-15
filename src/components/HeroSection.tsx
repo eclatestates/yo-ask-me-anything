@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import heroImg from "@/assets/hero-property.jpg";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
