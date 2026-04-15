@@ -32,10 +32,10 @@ const Navbar = () => {
           <a href="#pricing" className="hover:text-gold transition-colors">Pricing</a>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="ghost" className={`hidden sm:inline-flex ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
+          <Button variant="ghost" className={`hidden sm:inline-flex ${scrolled ? "text-foreground" : "text-primary-foreground"}`} onClick={() => navigate("/auth")}>
             Log In
           </Button>
-          <Button className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold shadow-glow">
+          <Button className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold shadow-glow" onClick={() => navigate("/auth")}>
             Start Free Trial
           </Button>
         </div>
@@ -44,7 +44,9 @@ const Navbar = () => {
   );
 };
 
-const HeroSection = () => (
+const HeroSection = () => {
+  const navigate = useNavigate();
+  return (
   <section className="relative min-h-[100vh] flex items-center overflow-hidden">
     <div className="absolute inset-0">
       <img src={heroImg} alt="Luxury property" width={1920} height={1080} className="w-full h-full object-cover" />
