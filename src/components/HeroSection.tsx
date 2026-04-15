@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import heroImg from "@/assets/hero-property.jpg";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
   
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -30,10 +32,10 @@ const Navbar = () => {
           <a href="#pricing" className="hover:text-gold transition-colors">Pricing</a>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="ghost" className={`hidden sm:inline-flex ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
+          <Button variant="ghost" className={`hidden sm:inline-flex ${scrolled ? "text-foreground" : "text-primary-foreground"}`} onClick={() => navigate("/auth")}>
             Log In
           </Button>
-          <Button className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold shadow-glow">
+          <Button className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold shadow-glow" onClick={() => navigate("/auth")}>
             Start Free Trial
           </Button>
         </div>
@@ -42,7 +44,9 @@ const Navbar = () => {
   );
 };
 
-const HeroSection = () => (
+const HeroSection = () => {
+  const navigate = useNavigate();
+  return (
   <section className="relative min-h-[100vh] flex items-center overflow-hidden">
     <div className="absolute inset-0">
       <img src={heroImg} alt="Luxury property" width={1920} height={1080} className="w-full h-full object-cover" />
@@ -62,7 +66,7 @@ const HeroSection = () => (
           Beautiful property pages with built-in lead capture, seller reports, and open house tools. Everything agents need to win more listings and close more deals.
         </p>
         <div className="flex flex-wrap items-center gap-4">
-          <Button size="lg" className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold text-base px-8 shadow-glow">
+          <Button size="lg" className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold text-base px-8 shadow-glow" onClick={() => navigate("/auth")}>
             Get Started Free
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
@@ -86,6 +90,7 @@ const HeroSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export { Navbar, HeroSection };
