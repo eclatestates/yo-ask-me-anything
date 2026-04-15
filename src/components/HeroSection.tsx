@@ -66,7 +66,7 @@ const HeroSection = () => {
           Beautiful property pages with built-in lead capture, seller reports, and open house tools. Everything agents need to win more listings and close more deals.
         </p>
         <div className="flex flex-wrap items-center gap-4">
-          <Button size="lg" className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold text-base px-8 shadow-glow">
+          <Button size="lg" className="bg-gold hover:bg-gold/90 text-secondary-foreground font-semibold text-base px-8 shadow-glow" onClick={() => navigate("/auth")}>
             Get Started Free
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
