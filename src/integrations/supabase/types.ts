@@ -14,7 +14,104 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          listing_id: string
+          message: string | null
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          listing_id: string
+          message?: string | null
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          listing_id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "leads_listing_id_fkey"
+            columns: ["listing_id"]
+            isOneToOne: false
+            referencedRelation: "listings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      listings: {
+        Row: {
+          address: string
+          agent_email: string
+          agent_id: string
+          agent_name: string
+          agent_phone: string | null
+          bathrooms: number
+          bedrooms: number
+          city: string
+          created_at: string
+          description: string | null
+          id: string
+          is_published: boolean
+          photos: string[] | null
+          price: number
+          sqft: number | null
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          address: string
+          agent_email?: string
+          agent_id: string
+          agent_name?: string
+          agent_phone?: string | null
+          bathrooms?: number
+          bedrooms?: number
+          city?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_published?: boolean
+          photos?: string[] | null
+          price: number
+          sqft?: number | null
+          state?: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string
+          agent_email?: string
+          agent_id?: string
+          agent_name?: string
+          agent_phone?: string | null
+          bathrooms?: number
+          bedrooms?: number
+          city?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_published?: boolean
+          photos?: string[] | null
+          price?: number
+          sqft?: number | null
+          state?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
