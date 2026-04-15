@@ -90,6 +90,7 @@ const HeroSection = () => {
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export { Navbar, HeroSection };
