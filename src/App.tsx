@@ -8,6 +8,7 @@ import Auth from "./pages/Auth.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import CreateListing from "./pages/CreateListing.tsx";
 import PropertyPage from "./pages/PropertyPage.tsx";
+import Generator from "./pages/Generator.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/create" element={<CreateListing />} />
           <Route path="/p/:id" element={<PropertyPage />} />
+          <Route path="/generator" element={<Generator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
